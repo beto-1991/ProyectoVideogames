@@ -1,0 +1,31 @@
+.Inputs {
+  flex: 3;
+  font: inherit;
+  padding: 0.35rem 0.35rem;
+  border-radius: 6px;
+}
+
+.Inputs {
+  background-color: #454545;
+  box-shadow: none;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 314px;
+  border: none;
+  color: #8c8c8c;
+  padding: 10px;
+  margin-left: 10px;
+}
+.Inputs:focus {
+  border: none;
+}
+.Checkboxes {
+  margin-top: 10px;
+  margin: auto;
+}
+
+.div {
+  display: flex;
+  justify-content: center;
+}

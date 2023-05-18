@@ -1,0 +1,23 @@
+.logo {
+  width: 150px;
+}
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputDiv {
+  align-self: center;
+}
+
+.title {
+  color: #454545;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.title:hover {
+  color: white;
+}
