@@ -9,7 +9,7 @@ const Videogames = () => {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.videogames);
   const currentPage = useSelector((state) => state.currentPage);
-  const itemsPerPage = 14;
+  const itemsPerPage = 15;
   const startIndex = (currentPage - 1) * itemsPerPage; // Primer parametro del metodo slice seria el indice 0 del array videogames
   const endIndex = startIndex + itemsPerPage; // Segundo parametro del metodo slice seria el numero 19 del array videogames para que haga el corte a los 20 videojuegos
   const [name, setName] = useState("");
