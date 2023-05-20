@@ -8,6 +8,9 @@ const SearchBar = (props) => {
       <Link to="/home">
         <img className={styles.logo} src={logo} alt="logo" />
       </Link>
+      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+        <h2 className={styles.title}>Home</h2>
+      </Link>
       <Link
         style={{ textDecoration: "none", color: "white" }}
         to="/home/create"

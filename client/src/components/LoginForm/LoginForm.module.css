@@ -46,7 +46,7 @@
       rgba(255, 255, 255, 0.1)
     ),
     url("cover1.png");
-  height: 900px;
+  height: 1000px;
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
 }

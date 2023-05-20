@@ -10,10 +10,9 @@ import {
 
 const initialState = {
   videogames: [],
-  gamesFiltered: [],
   videogameDetail: {},
-  sortedVideogames: [],
   currentPage: 1,
+  gamesFiltered: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,16 +29,23 @@ const reducer = (state = initialState, action) => {
         videogameDetail: action.payload,
       };
     case FILTER:
-      const gamesFiltered = [...state.videogames].filter((videogame) => {
-        return videogame.genres.some((genre) => genre.name === action.payload);
-      });
+      let gamesFiltered;
+      if (action.payload === "All") {
+        gamesFiltered = [...state.videogames];
+      } else {
+        gamesFiltered = [...state.videogames].filter((videogame) => {
+          return videogame.genres.some(
+            (genre) => genre.name === action.payload
+          );
+        });
+      }
 
       return {
         ...state,
-        videogames: gamesFiltered,
+        gamesFiltered: gamesFiltered,
       };
     case ORDER:
-      const sortedVideogames = [...state.videogames].sort((a, b) => {
+      const sortedVideogames = [...state.gamesFiltered].sort((a, b) => {
         if (action.payload === "Ascendente") {
           return a.rating - b.rating;
         } else if (action.payload === "Descendente") {
@@ -49,7 +55,7 @@ const reducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        videogames: sortedVideogames,
+        gamesFiltered: sortedVideogames,
       };
     case POST_VIDEOGAME:
       return {

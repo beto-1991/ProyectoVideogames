@@ -13,11 +13,11 @@
 }
 
 .title {
-  color: #454545;
+  color: white;
   font-size: 18px;
-  text-decoration: underline;
+  margin-right: 20px;
 }
 
 .title:hover {
-  color: white;
+  color: #707070;
 }

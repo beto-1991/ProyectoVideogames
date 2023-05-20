@@ -7,9 +7,10 @@ import Filters from "../Filters/Filters";
 
 const Videogames = () => {
   const dispatch = useDispatch();
-  const videogames = useSelector((state) => state.videogames);
+
+  const gamesFiltered = useSelector((state) => state.gamesFiltered);
   const currentPage = useSelector((state) => state.currentPage);
-  const itemsPerPage = 15;
+  const itemsPerPage = 14;
   const startIndex = (currentPage - 1) * itemsPerPage; // Primer parametro del metodo slice seria el indice 0 del array videogames
   const endIndex = startIndex + itemsPerPage; // Segundo parametro del metodo slice seria el numero 19 del array videogames para que haga el corte a los 20 videojuegos
   const [name, setName] = useState("");
@@ -32,8 +33,7 @@ const Videogames = () => {
     <div>
       <Filters setName={setName} name={name} />
       <div className={styles.CardsDiv}>
-        {console.log(videogames)}
-        {videogames.slice(startIndex, endIndex).map((videogame) => {
+        {gamesFiltered.slice(startIndex, endIndex).map((videogame) => {
           return (
             <Videogame
               id={videogame.id}
@@ -56,7 +56,7 @@ const Videogames = () => {
         </button>
         <button
           onClick={handleNextPage}
-          disabled={endIndex >= videogames.length}
+          disabled={endIndex >= gamesFiltered.length}
           className={styles.button}
         >
           Next Page

@@ -12,11 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        {location.pathname !== "/" && location.pathname !== "/login" && (
-          <SearchBar />
-        )}
-      </div>
+      <div>{location.pathname === "/home" && <SearchBar />}</div>
       <Routes>
         <Route path="/" element={<Landing />}></Route>
         <Route path="/login" element={<LoginForm />}></Route>

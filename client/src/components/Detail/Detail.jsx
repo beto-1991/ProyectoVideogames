@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import logo from "./logo-removebg-preview.png";
+import { Link } from "react-router-dom";
 
 import styles from "./Detail.module.css";
 
@@ -25,17 +27,36 @@ const Detail = (props) => {
 
   return (
     <div>
-      <div className={styles.detailDiv}>
-        <h1 className={styles.title}>{videogame.name}</h1>
-
-        <img src={videogame.image} className={styles.image} alt="" />
-        <div className={styles.fechaRatingDiv}>
-          <p className={styles.fechaRating}>Rating: {videogame.rating}</p>
-          <p className={styles.fechaRating}>
-            Fecha de Lanzamiento: {videogame.releaseDate}
-          </p>
+      <div
+        className={styles.jumbotron}
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(${videogame.image})`,
+        }}
+      >
+        <div className={styles.navBar}>
+          <Link to="/home">
+            <img className={styles.logo} src={logo} alt="logo" />
+          </Link>
         </div>
-        <p className={styles.description}>{videogame.description}</p>
+
+        <div className={styles.detailDiv}>
+          <div>
+            <h1 className={styles.title}>{videogame.name}</h1>
+          </div>
+          <div className={styles.dataDiv}>
+            <div className={styles.description}>
+              <p dangerouslySetInnerHTML={{ __html: videogame.description }} />
+            </div>
+            <div className={styles.fechaRatingDiv}>
+              <p className={styles.fechaRating}>
+                <strong>Rating:</strong> {videogame.rating}
+              </p>
+              <p className={styles.fechaRating}>
+                <strong>Fecha de Lanzamiento:</strong> {videogame.releaseDate}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
