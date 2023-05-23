@@ -10,6 +10,8 @@ const Videogame = ({ id, name, image, genre, rating }) => {
     ratingClass = styles.mediumRating;
   } else if (rating >= 1 && rating < 3) {
     ratingClass = styles.lowRating;
+  } else if (rating === 0) {
+    ratingClass = styles.noRating;
   }
 
   return (
